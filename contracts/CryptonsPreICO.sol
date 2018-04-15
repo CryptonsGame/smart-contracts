@@ -16,13 +16,13 @@ contract DiscountedPreICO is TimedCrowdsale {
   
   
   function _getTokenAmount(uint256 _weiAmount) internal view returns (uint256) {
-     return _weiAmount.mul(rate).mul(100).div(100 - _getCurrentDiscount());
+     return _weiAmount.mul(rate).mul(100).div(100 - getCurrentDiscount());
   }
   
   /**
    * returns discount for the current time.
    */
-  function _getCurrentDiscount() internal view returns(uint256) {
+  function getCurrentDiscount() public view returns(uint256) {
     return 0;
   }
 }
@@ -57,7 +57,7 @@ contract AbstractCryptonsPreICOWithDiscount is AbstractCryptonsPreICO {
                              _soft_cap, _hard_cap) public {
     }
 
-    function _getCurrentDiscount() internal view returns(uint256) {
+    function getCurrentDiscount() public view returns(uint256) {
       if (now < openingTime + 1 weeks)
         return 50;
       if (now < openingTime + 2 weeks)
@@ -71,7 +71,7 @@ contract CryptonsPreICO is AbstractCryptonsPreICOWithDiscount {
   uint256 public constant OPENING_TIME = 1523880000; // 04/16/2018 @ 12:00pm (UTC)
   uint256 public constant CLOSING_TIME = 1525132800; // 04/30/2018 @ 11:59pm (UTC) + 1s
   uint256 public constant ETH_TO_CRYPTONS_TOKEN_RATE = 1000;
-  
+
   uint256 public constant SOFT_CAP = 694 ether;
   uint256 public constant HARD_CAP = 2778 ether;
 

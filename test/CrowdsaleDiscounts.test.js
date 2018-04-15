@@ -44,6 +44,9 @@ contract('AbstractCryptonsPreICOWithDiscount', function ([_, investor, wallet, p
             await this.crowdsale.buyTokens(investor, { value, from: purchaser });
             const balance = await this.token.balanceOf(investor);
             balance.should.be.bignumber.equal(expectedTokenAmount.mul(100).dividedToIntegerBy(100 - discount));
+
+            const currentDiscount = await this.crowdsale.getCurrentDiscount();
+            currentDiscount.should.be.bignumber.equal(discount);
         });
     }
     // We need to add 3 seconds, because the framework is so slow that timestamp
