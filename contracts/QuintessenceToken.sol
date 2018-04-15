@@ -17,11 +17,10 @@ contract AbstractQuintessenceToken is CappedToken, ERC827Token, BurnableToken {
 
 contract QuintessenceToken is AbstractQuintessenceToken {
   uint256 public constant decimals = 18;
-  uint256 public constant TOKEN_CAP = 58000000 * (10 ** decimals);
+  uint256 public constant TOKEN_CAP = 56000000 * (10 ** decimals);
   // Allocate 4% of TOKEN_CAP to the team.
-  uint256 public constant INITIAL_SUPPLY = (TOKEN_CAP * 4) / 100;
+  uint256 public constant TEAM_SUPPLY = (TOKEN_CAP * 4) / 100;
 
-
-  function QuintessenceToken() AbstractQuintessenceToken(INITIAL_SUPPLY, TOKEN_CAP) public {
+  function QuintessenceToken() AbstractQuintessenceToken(TEAM_SUPPLY, TOKEN_CAP) public {
   }
 }

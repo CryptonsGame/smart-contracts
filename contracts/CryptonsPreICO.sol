@@ -67,13 +67,13 @@ contract AbstractCryptonsPreICOWithDiscount is AbstractCryptonsPreICO {
 contract CryptonsPreICO is AbstractCryptonsPreICOWithDiscount {
 
   // PreICO starts in the noon, and ends 2 weeks later in the evening.
-  uint256 public constant OPENING_TIME = 1523880000; // 04/16/2018 @ 12:00pm (UTC)
-  uint256 public constant CLOSING_TIME = 1525125599; // 04/30/2018 @ 9:59pm (UTC)
+  uint256 public constant OPENING_TIME = 1523880000; // 2018-04-16 12:00:00+00:00 (UTC)
+  uint256 public constant CLOSING_TIME = 1525125599; // 2018-04-30 21:59:59+00:00 (UTC)
 
   uint256 public constant ETH_TO_CRYPTONS_TOKEN_RATE = 1000;
 
-  uint256 public constant SOFT_CAP = 694 ether;
-  uint256 public constant HARD_CAP = 2778 ether;
+  uint256 public constant SOFT_CAP = 656 ether;
+  uint256 public constant HARD_CAP = 2624 ether;
 
   function CryptonsPreICO(address _wallet, QuintessenceToken _token)
       AbstractCryptonsPreICOWithDiscount(OPENING_TIME, CLOSING_TIME,
