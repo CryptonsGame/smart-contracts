@@ -2,7 +2,7 @@ const BigNumber = web3.BigNumber;
 var suite = require('token-test-suite/lib/suite');
 
 const QuintessenceToken = artifacts.require('QuintessenceToken');
-const initialSupply = new BigNumber((58000000 * 10**18)*4).dividedToIntegerBy(100);
+const initialSupply = new BigNumber((56000000 * 10**18)*4).dividedToIntegerBy(100);
 
 let options = function(accounts) { return {
 	// accounts to test with, accounts[0] being the contract owner

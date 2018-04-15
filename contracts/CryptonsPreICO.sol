@@ -70,14 +70,14 @@ contract CryptonsPreICO is AbstractCryptonsPreICOWithDiscount {
   uint256 public constant OPENING_TIME = 1523880000; // 2018-04-16 12:00:00+00:00 (UTC)
   uint256 public constant CLOSING_TIME = 1525125599; // 2018-04-30 21:59:59+00:00 (UTC)
 
-  uint256 public constant ETH_TO_CRYPTONS_TOKEN_RATE = 1000;
+  uint256 public constant ETH_TO_QST_TOKEN_RATE = 1000;
 
   uint256 public constant SOFT_CAP = 656 ether;
   uint256 public constant HARD_CAP = 2624 ether;
 
   function CryptonsPreICO(address _wallet, QuintessenceToken _token)
       AbstractCryptonsPreICOWithDiscount(OPENING_TIME, CLOSING_TIME,
-                                         ETH_TO_CRYPTONS_TOKEN_RATE,
+                                         ETH_TO_QST_TOKEN_RATE,
                                          _wallet, _token,
                                          SOFT_CAP, HARD_CAP) public {
       // Check if we didn't set up the opening and closing time to far in
