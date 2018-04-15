@@ -53,7 +53,7 @@ contract('AbstractCryptonsPreICOWithDiscount', function ([_, investor, wallet, p
     // changes while running it.
     test(duration.seconds(3), 50);
     test(duration.weeks(1), 40);
-    test(duration.weeks(2), 0);
+    test(duration.weeks(1) + duration.hours(10), 40);
   });
   
   

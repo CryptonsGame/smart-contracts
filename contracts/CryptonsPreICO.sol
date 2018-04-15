@@ -60,16 +60,16 @@ contract AbstractCryptonsPreICOWithDiscount is AbstractCryptonsPreICO {
     function getCurrentDiscount() public view returns(uint256) {
       if (now < openingTime + 1 weeks)
         return 50;
-      if (now < openingTime + 2 weeks)
-        return 40;
-      return 0;
+      return 40;
     }
 }
 
 contract CryptonsPreICO is AbstractCryptonsPreICOWithDiscount {
 
+  // PreICO starts in the noon, and ends 2 weeks later in the evening.
   uint256 public constant OPENING_TIME = 1523880000; // 04/16/2018 @ 12:00pm (UTC)
-  uint256 public constant CLOSING_TIME = 1525132800; // 04/30/2018 @ 11:59pm (UTC) + 1s
+  uint256 public constant CLOSING_TIME = 1525125599; // 04/30/2018 @ 9:59pm (UTC)
+
   uint256 public constant ETH_TO_CRYPTONS_TOKEN_RATE = 1000;
 
   uint256 public constant SOFT_CAP = 694 ether;
@@ -83,7 +83,7 @@ contract CryptonsPreICO is AbstractCryptonsPreICOWithDiscount {
       // Check if we didn't set up the opening and closing time to far in
       // the future by accident.
       require(now + 1 weeks > openingTime);
-      require(openingTime + 3 weeks > closingTime);
+      require(openingTime + 2 weeks + 10 hours > closingTime);
   }
 
 }
