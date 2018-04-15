@@ -11,8 +11,7 @@ contract AbstractQuintessenceToken is CappedToken, ERC827Token, BurnableToken {
 
   function AbstractQuintessenceToken(uint256 initial_supply, uint256 _cap)
         CappedToken(_cap) public {
-    totalSupply_ = initial_supply;
-    balances[msg.sender] = initial_supply;
+    mint(msg.sender, initial_supply);
   }
 }
 

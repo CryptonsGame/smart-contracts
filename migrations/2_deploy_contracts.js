@@ -5,14 +5,15 @@ var CryptonsPreICO = artifacts.require("CryptonsPreICO");
 module.exports = async function(deployer, network, accounts) {
     if (network == "coverage")
         return;
-    console.log("Deploying from: " + accounts[0]);
+    var account = accounts[1];
+    console.log("Deploying from: " + account);
 
-    await deployer.deploy(QuintessenceToken);
+    await deployer.deploy(QuintessenceToken, { from: account });
     var token = QuintessenceToken.at(QuintessenceToken.address);
 
-    await deployer.deploy(CryptonsPreICO, accounts[0], QuintessenceToken.address);
+    await deployer.deploy(CryptonsPreICO, account, QuintessenceToken.address, { from: account });
 
-    await token.transferOwnership(CryptonsPreICO.address, { from: accounts[0] });
+    await token.transferOwnership(CryptonsPreICO.address, { from: account });
 
     console.log("QuintesenceToken addr: " + QuintessenceToken.address);
     console.log("CryptonsPreICO addr: " + CryptonsPreICO.address);
